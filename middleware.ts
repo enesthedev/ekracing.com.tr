@@ -1,6 +1,6 @@
 import chain from "@nimpl/middleware-chain";
 
-import { auth as authMiddleware } from "@/lib/auth";
+import { auth as authMiddleware } from "@/app/features/auth";
 import { Middleware } from "@nimpl/middleware-chain/dist/lib/types";
 
 export default chain([
