@@ -6,7 +6,16 @@ import { getMessages } from "next-intl/server";
 
 import { NextIntlClientProvider } from "next-intl";
 
+import { Poppins } from "next/font/google";
+
 import "../globals.css";
+
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin-ext"],
+  display: "auto",
+  variable: "--font-poppins",
+});
 
 export type LocalizedRootLayoutProps = {
   params: {
@@ -27,7 +36,7 @@ export default async function LocalizedRootLayout(
 
   return (
     <html lang={locale}>
-      <body className={`font-sans`}>
+      <body className={`font-sans dark ${poppins.variable}`}>
         <NextIntlClientProvider messages={messages}>
           {props.children}
         </NextIntlClientProvider>
