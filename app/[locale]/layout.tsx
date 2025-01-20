@@ -6,9 +6,16 @@ import { getMessages } from "next-intl/server";
 
 import { NextIntlClientProvider } from "next-intl";
 
-import { Poppins } from "next/font/google";
+import { Geist, Poppins } from "next/font/google";
 
 import "../globals.css";
+
+const geist = Geist({
+  weight: ["300", "400"],
+  subsets: ["latin-ext"],
+  display: "auto",
+  variable: "--font-geist",
+});
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -36,7 +43,7 @@ export default async function LocalizedRootLayout(
 
   return (
     <html lang={locale}>
-      <body className={`font-sans dark ${poppins.variable}`}>
+      <body className={`font-sans dark ${poppins.variable} ${geist.variable}`}>
         <NextIntlClientProvider messages={messages}>
           {props.children}
         </NextIntlClientProvider>
