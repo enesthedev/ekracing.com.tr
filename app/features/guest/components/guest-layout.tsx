@@ -5,7 +5,7 @@ const GuestLayout = (props: PropsWithChildren) => {
   return (
     <>
       <GuestHeader />
-      <main className="pt-[80px]">{props.children}</main>
+      <main>{props.children}</main>
     </>
   );
 };

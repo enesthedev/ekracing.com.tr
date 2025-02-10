@@ -1,13 +1,11 @@
 "use client";
 
-import { Navbar } from "@/app/components/navbar";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Navbar } from "@/app/components";
 
 const GuestHeader = () => {
   return (
     <header
-      className={`fixed z-10 top-0 w-full h-[80px] flex items-center px-5 bg-white/5 backdrop-blur-lg drop-shadow-lg`}
+      className={`w-full h-[80px] transition-[background] duration-300 flex items-center px-5`}
     >
       <Navbar />
     </header>
