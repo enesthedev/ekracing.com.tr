@@ -1,8 +1,9 @@
 "use client";
 
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+import { LucideMenu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import {
   Button,
   Sheet,
@@ -11,17 +12,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui";
-import { LucideMenu } from "lucide-react";
 
 const Navbar = () => {
   return (
     <div className="flex h-[80px] w-full flex-row items-center justify-between space-x-8">
-      <div className="flex w-[154.8px] h-[39.6px]">
+      <div className="flex w-[60px] h-[60px]">
         <Image
           src={"/logo.png"}
           alt="logo"
-          width={154.88}
-          height={39.6}
+          width={60}
+          height={60}
           className="brightness-0 invert opacity-90"
         />
       </div>
