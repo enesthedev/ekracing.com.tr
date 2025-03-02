@@ -11,6 +11,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-poppins)"],
+        sans2: ["var(--font-geist)"],
       },
       colors: {
         background: "hsl(var(--background))",
