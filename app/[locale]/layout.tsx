@@ -1,13 +1,14 @@
-import { PropsWithChildren } from "react";
-import { Locale } from "../features/i18n/types";
-import { routing } from "../features/i18n/routing";
-import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { PropsWithChildren } from "react";
+import { routing } from "../features/i18n/routing";
+import { Locale } from "../features/i18n/types";
 
 import { NextIntlClientProvider } from "next-intl";
 
 import { Geist, Poppins } from "next/font/google";
 
+import Header from "../components/header";
 import "../globals.css";
 
 const geist = Geist({
@@ -24,10 +25,12 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+export type LocalizedRootLayoutParams = Promise<{
+  locale: string;
+}>;
+
 export type LocalizedRootLayoutProps = {
-  params: {
-    locale: string;
-  };
+  params: LocalizedRootLayoutParams;
 };
 
 export default async function LocalizedRootLayout(
@@ -45,7 +48,8 @@ export default async function LocalizedRootLayout(
     <html lang={locale}>
       <body className={`font-sans dark ${poppins.variable} ${geist.variable}`}>
         <NextIntlClientProvider messages={messages}>
-          {props.children}
+          <Header />
+          <main>{props.children}</main>
         </NextIntlClientProvider>
       </body>
     </html>
