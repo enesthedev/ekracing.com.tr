@@ -1,9 +1,9 @@
 import { getMDXContent } from "../../mdx/actions";
-import { Project } from "../types";
+import { Service } from "../types";
 
 export const getAllPServiceMetas = async (
   locale: string
-): Promise<Project[]> => {
-  const projects = await getMDXContent<Project>("services", locale);
+): Promise<Service[]> => {
+  const projects = await getMDXContent<Service>("services", locale);
   return projects.map(({ meta }) => meta);
 };
