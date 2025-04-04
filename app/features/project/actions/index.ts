@@ -1,1 +1,1 @@
-export * from "./get-all-project-metas";
+export * from "./get-all-project-meta";
