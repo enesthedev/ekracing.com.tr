@@ -8,13 +8,9 @@ export async function WhatWeOffer() {
 
   return (
     <section className="w-full flex flex-col items-start justify-start">
-      <h1 className="font-bold px-5 text-[#dc2626] leading-tight text-xl mb-2">
-        Our Services
-      </h1>
       <div className="w-full flex bg-[#dc2626] p-5 flex-row space-x-8 items-start justify-start">
         {services.map((service) => (
           <div
-            // add a group class to control hover state
             key={service.title}
             className="group flex space-x-3 w-1/3 justify-center rounded-lg"
           >
