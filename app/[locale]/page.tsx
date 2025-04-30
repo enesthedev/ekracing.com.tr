@@ -1,6 +1,12 @@
 import { ArrowRightCircle } from "lucide-react";
 import { getLocale } from "next-intl/server";
 import { WorldMap } from "../components";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui";
 import { getAllProjectMeta } from "../features/project/actions";
 import { ProjectCarousel } from "../features/project/components";
 import { getAllServiceMeta } from "../features/service/actions";
@@ -41,7 +47,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <section className="px-5 w-full pb-10 flex items-start justify-between bg-white">
+      <section className="px-5 w-full flex items-start justify-between bg-white">
         <div className="flex flex-col space-y-6">
           <h1 className="font-bold pt-10 text-black leading-tight text-3xl mb-2">
             Visit Our Dealers
@@ -105,6 +111,45 @@ export default async function Page() {
           />
         </div>
       </section>
+
+      <section className="px-5 w-full pb-10 flex items-start justify-between bg-white">
+        <div className="flex flex-col space-y-6 w-full">
+          <h1 className="font-bold pt-10 text-black leading-tight text-3xl mb-2">
+            FAQ
+          </h1>
+          <div className="flex flex-row w-full gap-4 text-black">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It adheres to the WAI-ARIA design pattern.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger>How can I customize it?</AccordionTrigger>
+                <AccordionContent>
+                  You can customize it using TailwindCSS and component props.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-3">
+                <AccordionTrigger>Is it responsive?</AccordionTrigger>
+                <AccordionContent>
+                  Yes, it adjusts beautifully across devices.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-4">
+                <AccordionTrigger>Can I use it with Next.js?</AccordionTrigger>
+                <AccordionContent>
+                  Absolutely. It integrates well with server components.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       {/*
       <section className="px-5 pt-10 pb-0.5 w-full lg:marker:flex flex-col items-start bg-white">
         <div className="w-full flex space-y-0 flex-col">
