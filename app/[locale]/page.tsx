@@ -10,13 +10,8 @@ export default async function Page() {
   const services = await getAllServices(locale);
   return (
     <div>
-      <ul>
-        {services.map((service) => (
-          <li key={service.title}>
-            <h2>{service.title}</h2>
-          </li>
-        ))}
-      </ul>
+      <span className="font-sans">test</span>
+      <span className="font-oxanium">test</span>
     </div>
   );
 }

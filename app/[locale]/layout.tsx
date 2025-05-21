@@ -6,11 +6,29 @@ import { Locale } from "../features/localization/types";
 
 import { NextIntlClientProvider } from "next-intl";
 
+import { Oxanium, Sarabun } from "next/font/google";
+
 import "../globals.css";
 
 export type LocalizedRootLayoutParams = Promise<{
   locale: string;
 }>;
+
+/** oxanium - ekstra, sarabun - normal */
+
+const sarabun = Sarabun({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin-ext"],
+  display: "auto",
+  variable: "--font-sarabun",
+});
+
+const oxanium = Oxanium({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin-ext"],
+  display: "auto",
+  variable: "--font-oxanium",
+});
 
 export type LocalizedRootLayoutProps = {
   params: LocalizedRootLayoutParams;
@@ -29,7 +47,9 @@ export default async function LocalizedRootLayout(
 
   return (
     <html lang={locale}>
-      <body>
+      <body
+        className={`font-sans antialiased ${sarabun.variable} ${oxanium.variable}`}
+      >
         <NextIntlClientProvider messages={messages}>
           <main>{props.children}</main>
         </NextIntlClientProvider>
