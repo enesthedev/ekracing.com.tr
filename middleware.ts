@@ -1,19 +1,11 @@
-import chain from "@nimpl/middleware-chain";
-
-import { auth as authMiddleware } from "@/app/features/auth";
-import { Middleware } from "@nimpl/middleware-chain/dist/lib/types";
 import createMiddleware from "next-intl/middleware";
-import { routing } from "./app/features/i18n/routing";
+import { routing } from "./app/features/localization/routing";
 
-const nextIntlMiddleware = createMiddleware(routing);
-
-export default chain([
-  nextIntlMiddleware,
-  [authMiddleware as unknown as Middleware, { include: /^\/private(\/.*)?$/ }],
-]);
+export default createMiddleware(routing);
 
 export const config = {
-  matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|.*.png|.*.jpeg$).*)",
-  ],
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
 };

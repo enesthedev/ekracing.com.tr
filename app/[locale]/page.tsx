@@ -1,16 +1,22 @@
-import GuestLayout from "../features/guest/components/guest-layout";
-import { ProjectCarousel } from "../features/project/components";
+import { getLocale } from "next-intl/server";
+import { getAllServices } from "../features/services/actions/get-all-services";
 
-export default function Home() {
+export const metadata = {
+  title: "Test",
+};
+
+export default async function Page() {
+  const locale = await getLocale();
+  const services = await getAllServices(locale);
   return (
-    <GuestLayout>
-      <section className="px-5 py-10 w-full flex items-center justify-between">
-        <h1 className="text-white text-5xl md:text-6xl font-extrabold leading-tight w-min drop-shadow-xl">
-          What We Built
-        </h1>
-        <ProjectCarousel />
-      </section>
-      <div className="h-[2000px] w-full"></div>
-    </GuestLayout>
+    <div>
+      <ul>
+        {services.map((service) => (
+          <li key={service.title}>
+            <h2>{service.title}</h2>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

@@ -1,26 +1,19 @@
-import { PropsWithChildren } from "react";
-import { Locale } from "../features/i18n/types";
-import { routing } from "../features/i18n/routing";
-import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { PropsWithChildren } from "react";
+import { routing } from "../features/localization/routing";
+import { Locale } from "../features/localization/types";
 
 import { NextIntlClientProvider } from "next-intl";
 
-import { Poppins } from "next/font/google";
-
 import "../globals.css";
 
-const poppins = Poppins({
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin-ext"],
-  display: "auto",
-  variable: "--font-poppins",
-});
+export type LocalizedRootLayoutParams = Promise<{
+  locale: string;
+}>;
 
 export type LocalizedRootLayoutProps = {
-  params: {
-    locale: string;
-  };
+  params: LocalizedRootLayoutParams;
 };
 
 export default async function LocalizedRootLayout(
@@ -36,9 +29,9 @@ export default async function LocalizedRootLayout(
 
   return (
     <html lang={locale}>
-      <body className={`font-sans dark ${poppins.variable}`}>
+      <body>
         <NextIntlClientProvider messages={messages}>
-          {props.children}
+          <main>{props.children}</main>
         </NextIntlClientProvider>
       </body>
     </html>
