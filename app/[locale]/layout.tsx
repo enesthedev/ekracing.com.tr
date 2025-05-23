@@ -6,7 +6,7 @@ import { Locale } from "../features/localization/types";
 
 import { NextIntlClientProvider } from "next-intl";
 
-import { Oxanium, Sarabun } from "next/font/google";
+import { Geist, Oxanium, Poppins, Sarabun } from "next/font/google";
 
 import "../globals.css";
 
@@ -30,6 +30,20 @@ const oxanium = Oxanium({
   variable: "--font-oxanium",
 });
 
+const geist = Geist({
+  weight: ["300", "400"],
+  subsets: ["latin-ext"],
+  display: "auto",
+  variable: "--font-geist",
+});
+
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin-ext"],
+  display: "auto",
+  variable: "--font-poppins",
+});
+
 export type LocalizedRootLayoutProps = {
   params: LocalizedRootLayoutParams;
 };
@@ -48,10 +62,10 @@ export default async function LocalizedRootLayout(
   return (
     <html lang={locale}>
       <body
-        className={`font-sans antialiased ${sarabun.variable} ${oxanium.variable}`}
+        className={`font-sans antialiased dark ${geist.variable} ${poppins.variable} ${sarabun.variable} ${oxanium.variable}`}
       >
         <NextIntlClientProvider messages={messages}>
-          <main>{props.children}</main>
+          {props.children}
         </NextIntlClientProvider>
       </body>
     </html>
