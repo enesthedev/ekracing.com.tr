@@ -10,6 +10,7 @@ import {
   SheetDescription,
   SheetTitle,
   SheetTrigger,
+  TextAnimate,
 } from "./ui";
 
 // TODO: make aria labels
@@ -32,27 +33,37 @@ export function Navbar() {
           <ul className="relative hidden w-full flex-row items-center space-x-8 text-sm text-white font-bold uppercase lg:flex lg:justify-end">
             <li>
               <Link href="#" className="hover:underline">
-                Home
+                <TextAnimate as={"span"} animation="fadeInDown">
+                  Home
+                </TextAnimate>
               </Link>
             </li>
             <li>
               <Link href="#" className="hover:underline">
-                Dealers
+                <TextAnimate as={"span"} animation="fadeInDown">
+                  Dealers
+                </TextAnimate>
               </Link>
             </li>
             <li>
               <Link href="#" className="hover:underline">
-                Services
+                <TextAnimate as={"span"} animation="fadeInDown">
+                  Services
+                </TextAnimate>
               </Link>
             </li>
             <li>
               <Link href="#" className="hover:underline">
-                Projects
+                <TextAnimate as={"span"} animation="fadeInDown">
+                  Projects
+                </TextAnimate>
               </Link>
             </li>
             <li>
               <Link href="#" className="hover:underline">
-                FAQ
+                <TextAnimate as={"span"} animation="fadeInDown">
+                  FAQ
+                </TextAnimate>
               </Link>
             </li>
             {/*<li className="absolute right-0">
