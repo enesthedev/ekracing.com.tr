@@ -60,6 +60,10 @@ interface TextAnimateProps extends MotionProps {
    */
   once?: boolean;
   /**
+   * Whether to trim whitespace segments
+   */
+  trimWhitespace?: boolean;
+  /**
    * The animation preset to use
    */
   animation?: AnimationVariant;
@@ -327,6 +331,7 @@ const TextAnimateBase = ({
   startOnView = true,
   once = false,
   by = "word",
+  trimWhitespace = true,
   animation = "fadeIn",
   ...props
 }: TextAnimateProps) => {
@@ -416,7 +421,7 @@ const TextAnimateBase = ({
               className={cn(
                 by === "line"
                   ? "block"
-                  : isWhitespace
+                  : isWhitespace && trimWhitespace
                   ? "hidden"
                   : "inline-block whitespace-pre",
                 by === "character" && "",
