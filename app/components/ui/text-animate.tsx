@@ -406,20 +406,27 @@ const TextAnimateBase = ({
         viewport={{ once }}
         {...props}
       >
-        {segments.map((segment, i) => (
-          <motion.span
-            key={`${by}-${segment}-${i}`}
-            variants={finalVariants.item}
-            custom={i * staggerTimings[by]}
-            className={cn(
-              by === "line" ? "block" : "inline-block whitespace-pre",
-              by === "character" && "",
-              segmentClassName
-            )}
-          >
-            {segment}
-          </motion.span>
-        ))}
+        {segments.map((segment, i) => {
+          const isWhitespace = segment.trim() === "";
+          return (
+            <motion.span
+              key={`${by}-${segment}-${i}`}
+              variants={finalVariants.item}
+              custom={i * staggerTimings[by]}
+              className={cn(
+                by === "line"
+                  ? "block"
+                  : isWhitespace
+                  ? "hidden"
+                  : "inline-block whitespace-pre",
+                by === "character" && "",
+                segmentClassName
+              )}
+            >
+              {segment}
+            </motion.span>
+          );
+        })}
       </MotionComponent>
     </AnimatePresence>
   );
