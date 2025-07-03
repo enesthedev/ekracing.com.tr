@@ -30,7 +30,7 @@ export function Navbar() {
           />
         </div>
         <nav aria-label="desktop-navigation" className="w-full">
-          <ul className="relative hidden w-full flex-row items-center space-x-8 text-sm text-white font-bold uppercase lg:flex lg:justify-end">
+          <ul className="relative font-oxanium hidden w-full flex-row items-center space-x-8 text-sm text-white font-bold uppercase lg:flex lg:justify-end">
             <li>
               <Link href="#" className="hover:underline">
                 <TextAnimate as={"span"} animation="fadeInDown">
