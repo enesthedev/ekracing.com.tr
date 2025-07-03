@@ -2,7 +2,9 @@ import { getLocale } from "next-intl/server";
 import { TextAnimate } from "../components/ui";
 import Expandable from "../components/ui/expandable";
 import LazyImage from "../components/ui/lazy-image";
-import { getAllServices } from "../features/services/actions/get-all-services";
+import { getAllDealers } from "../features/dealers/actions";
+import { DealersList } from "../features/dealers/components";
+import { getAllServices } from "../features/services/actions";
 import { Header } from "./header";
 
 export const metadata = {
@@ -12,6 +14,8 @@ export const metadata = {
 export default async function Page() {
   const locale = await getLocale();
   const services = await getAllServices(locale);
+  const dealers = await getAllDealers(locale);
+
   return (
     <>
       <Header />
@@ -29,7 +33,7 @@ export default async function Page() {
               as={"h2"}
               animation="fadeIn"
               by="text"
-              className="font-bold text-4xl"
+              className="font-bold text-4xl font-oxanium"
             >
               Services
             </TextAnimate>
@@ -53,7 +57,7 @@ export default async function Page() {
                     as={"h2"}
                     animation="fadeIn"
                     by="text"
-                    className="font-bold text-lg"
+                    className="font-bold text-lg font-oxanium"
                   >
                     {service.title}
                   </TextAnimate>
@@ -74,12 +78,14 @@ export default async function Page() {
           <TextAnimate
             as={"h1"}
             animation="fadeIn"
-            className="text-white text-5xl px-5 font-extrabold leading-tight w-min drop-shadow-xl"
+            by="word"
+            trimWhitespace={true}
+            className="text-white text-5xl px-5 font-oxanium font-extrabold uppercase leading-tight w-min drop-shadow-xl"
           >
             What We Built
           </TextAnimate>
           <Expandable
-            className="h-72"
+            className="h-72 font-oxanium"
             list={[
               {
                 image: "/images/projects/yellow-a3/thumbnail.jpg",
@@ -104,6 +110,8 @@ export default async function Page() {
             ]}
           />
         </section>
+
+        <DealersList dealers={dealers} locale={locale} />
       </main>
     </>
   );
