@@ -4,6 +4,7 @@ import Expandable from "../components/ui/expandable";
 import LazyImage from "../components/ui/lazy-image";
 import { getAllDealers } from "../features/dealers/actions";
 import { DealersList } from "../features/dealers/components";
+import { FAQSection } from "../features/faq/components";
 import { getAllServices } from "../features/services/actions";
 import { Header } from "./header";
 
@@ -112,6 +113,7 @@ export default async function Page() {
         </section>
 
         <DealersList dealers={dealers} locale={locale} />
+        <FAQSection />
       </main>
     </>
   );
