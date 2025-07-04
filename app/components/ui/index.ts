@@ -1,3 +1,4 @@
+export * from "./accordion";
 export * from "./box-reveal";
 export * from "./button";
 export * from "./expandable";
