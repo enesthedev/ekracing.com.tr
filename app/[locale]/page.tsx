@@ -1,4 +1,5 @@
 import { getLocale } from "next-intl/server";
+import { Footer } from "../components/footer";
 import { TextAnimate } from "../components/ui";
 import Expandable from "../components/ui/expandable";
 import LazyImage from "../components/ui/lazy-image";
@@ -115,6 +116,7 @@ export default async function Page() {
         <DealersList dealers={dealers} locale={locale} />
         <FAQSection />
       </main>
+      <Footer />
     </>
   );
 }
