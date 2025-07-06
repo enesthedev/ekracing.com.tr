@@ -1,2 +1,2 @@
-export { FAQList } from "./faq-list";
-export { FAQSection } from "./faq-section";
+export * from "./faq-list";
+export * from "./faq-section";
