@@ -49,4 +49,4 @@ const LazyImage = forwardRef<HTMLDivElement, LazyImageProps>(
 
 LazyImage.displayName = "LazyImage";
 
-export default LazyImage;
+export { LazyImage };

@@ -2,16 +2,16 @@ import { TextAnimate } from "@/app/components/ui";
 import { FooterLink, FooterLinkItem } from "./footer-link-item";
 
 export interface FooterSectionProps {
-  section: FooterSection;
+  section: FooterLinkSection;
 }
 
-export interface FooterSection {
+export interface FooterLinkSection {
   id: string;
   title: string;
   links: FooterLink[];
 }
 
-export function FooterSectionComponent({ section }: FooterSectionProps) {
+export function FooterSection({ section }: FooterSectionProps) {
   return (
     <div className="space-y-4">
       <TextAnimate

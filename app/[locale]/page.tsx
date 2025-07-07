@@ -1,13 +1,13 @@
 import { getLocale } from "next-intl/server";
-import { Footer } from "../components/footer";
-import { TextAnimate } from "../components/ui";
-import Expandable from "../components/ui/expandable";
-import LazyImage from "../components/ui/lazy-image";
 import { getAllDealers } from "../features/dealers/actions";
+import { getAllServices } from "../features/services/actions";
+
+import { Header } from "./header";
+
+import { Expandable, LazyImage, TextAnimate } from "../components/ui";
 import { DealersList } from "../features/dealers/components";
 import { FAQSection } from "../features/faq/components";
-import { getAllServices } from "../features/services/actions";
-import { Header } from "./header";
+import { Footer } from "./footer";
 
 export const metadata = {
   title: "Test",
@@ -15,6 +15,7 @@ export const metadata = {
 
 export default async function Page() {
   const locale = await getLocale();
+
   const services = await getAllServices(locale);
   const dealers = await getAllDealers(locale);
 
@@ -112,7 +113,6 @@ export default async function Page() {
             ]}
           />
         </section>
-
         <DealersList dealers={dealers} locale={locale} />
         <FAQSection />
       </main>

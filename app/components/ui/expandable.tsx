@@ -3,7 +3,7 @@
 import { HTMLAttributes, useEffect, useRef, useState } from "react";
 
 import { cn } from "@/app/utils";
-import LazyImage from "./lazy-image";
+import { LazyImage } from "./lazy-image";
 import { TextAnimate } from "./text-animate";
 
 interface ImageProps extends HTMLAttributes<HTMLDivElement> {
@@ -74,7 +74,7 @@ const items = [
   },
 ];
 
-export default function Expandable({
+export function Expandable({
   list = items,
   autoPlay = true,
   className,
