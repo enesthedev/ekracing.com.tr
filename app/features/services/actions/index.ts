@@ -1,1 +1,1 @@
-export * from "./get-all-thoughts";
+export * from "./get-all-services";

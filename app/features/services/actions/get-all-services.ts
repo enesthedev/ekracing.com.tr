@@ -7,7 +7,13 @@ export const getAllServices = async (locale: string): Promise<Service[]> => {
     locale,
     { includeContent: false }
   );
-  return services.map((service) => ({
-    ...service,
-  }));
+  const servicesWithThumbs = await Promise.all(
+    services.map(async (service) => {
+      return {
+        ...service,
+      };
+    })
+  );
+
+  return servicesWithThumbs;
 };
